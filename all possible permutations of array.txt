@@ -27,3 +27,24 @@ function permutations(arr){
  calculatepermutation(arr,0,arr.length-1)
  return inArr.length; 
 }
+
+function possibilities(str){
+	let result = [];
+        let arr = str.split('')
+	function helperPossibilities(arr,start,end){
+	 if(start>= end){
+	     result.push(arr.join(''))
+	 }
+    else{
+     for(let i=start;i<end+1;i++){
+	swap(arr,start,i);
+	helperPossibilities(arr,start+1,end);
+	swap(arr,start,i)
+     }
+   }
+ }
+	
+helperPossibilities(arr ,0,arr.length-1)
+return result;
+}
+['abc','acb','bac','bca','cab','cba']
